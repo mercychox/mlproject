@@ -1,8 +1,8 @@
 import sys
-import logging
+from src.logger import logging
 
 def error_message_detail(error, error_detail):
-    exc_type, _, exc_tb = error_detail
+    exc_type, _, exc_tb = error_detail.exc_info()
     file_name = exc_tb.tb_frame.f_code.co_filename
     error_message = f"Error occurred in Python script [{file_name}] line number [{exc_tb.tb_lineno}] - Error message: {str(error)}"
     return error_message
